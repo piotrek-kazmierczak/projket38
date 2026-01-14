@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Wyszukiwanie miast</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            flex: 1;
+        }
+        .right-block, .left-bottom {
+            padding: 20px;
+            border: 1px solid #000;
+        }
+        .right-block {
+            width: 70%;
+        }
+        .left-bottom {
+            width: 30%;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<form method="POST" action="">
+    <label>Wpisz miasto:
+        <input type="text" name="miasto" required>
+    </label>
+    <button type="submit">Szukaj</button>
+</form>
+
+<div class="container">
+    <div class="right-block">
+        <h1>Wyniki wyszukiwania miast z uwzględnieniem filtra:</h1>
+        <div>
+            <!-- Efekt działania skryptu -->
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $miasto = htmlspecialchars($_POST['miasto']);
+                echo "Wyszukano: <strong>$miasto</strong><br>";
+                echo "Tutaj pojawią się wyniki filtrowania miast...";
+            }
+            ?>
+        </div>
+    </div>
+
+    <div class="left-bottom">
+        <p>Egzamin INF.03</p>
+        <p>Autor: 123456</p> <!-- Wstaw numer zdającego -->
+    </div>
+</div>
+
+</body>
+</html>
